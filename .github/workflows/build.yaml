@@ -25,3 +25,23 @@ jobs:
           name: resume
           path: resume.pdf
           retention-days: 90
+
+  create_release:
+    needs: build_typst_documents
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: resume
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: resume.pdf
+          tag_name: v${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+          generate_release_notes: false
