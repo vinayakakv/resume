@@ -13,3 +13,8 @@ jobs:
         uses: lvignoli/typst-action@main
         with:
           source_file: resume.typ
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume
+          path: resume.pdf
