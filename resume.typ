@@ -19,7 +19,7 @@
 
 #show link: it => text(underline(it))
 
-#show heading.where(level: 1): set text(size: 24pt, weight: 700)
+#show heading.where(level: 1): set text(size: 24pt, weight: 800, font: "IBM Plex Mono")
 #show heading.where(level: 2): set text(size: 16pt, weight: 600)
 #show heading.where(level: 3): set text(size: 12pt, weight: 500)
 #show strong: set text(weight: 300)
@@ -93,6 +93,7 @@ Senior Software Engineer with 3+ years of experience in Full Stack Design and De
 - AI & ML: OpenAI and Google LLMs (GPTs and Gemini), CLIP Embedding, Vector Search
 - Version Control: Git
 - Collaboration Tools: Jira, Confluence, Notion, Slack
+- AI Tools: ChatGPT, V0, Cursor, Perplexity
 
 == Professional Experience
 
