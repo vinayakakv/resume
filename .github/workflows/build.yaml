@@ -11,10 +11,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-ibm-plex
-      - name: Typst
-        uses: lvignoli/typst-action@main
-        with:
-          source_file: resume.typ
+      - name: Build with Typst
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/work \
+            -v /usr/share/fonts:/fonts \
+            -w /work \
+            ghcr.io/typst/typst:latest \
+            compile --font-path /fonts resume.typ
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
